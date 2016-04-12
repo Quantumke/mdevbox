@@ -21,8 +21,9 @@ from django.conf.urls import patterns, include, url
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^register/', views.register, name="register"),
+    url(r'^addportfolio/', views.new_profile, name="register"),
     url(r'^$', 'mdevbox.views.home', name='home'),
     url('', include('social.apps.django_app.urls', namespace='social')),
+    url('', include('django.contrib.auth.urls', namespace='auth')),
 
 ]
