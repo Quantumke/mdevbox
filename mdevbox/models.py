@@ -11,8 +11,15 @@ from django.db.models import permalink
 
 class reg_user(models.Model):
     user = models.OneToOneField(User)
+    role=models.CharField(max_length=100, unique=False)
 
 
     def __unicode__(self):
         return self.user.username
+
+class developers(models.Model):
+    user=models.OneToOneField(User)
+    speciality=models.CharField(max_length=100, unique=False)
+    email=models.CharField(max_length=100, unique=False)
+    yoe=models.CharField(max_length=100, unique=False)
 
