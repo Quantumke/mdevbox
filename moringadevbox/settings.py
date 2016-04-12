@@ -144,14 +144,36 @@ INSTALLED_APPS = (
     'django_mongoengine.mongo_auth',
     'django_mongoengine.mongo_admin.sites',
     'django_mongoengine.mongo_admin',
+    'social.apps.django_app.default',
     'mdevbox',
 
 )
 
 
-# AUTHENTICATION_BACKENDS = (
-#     'django_mongoengine.mongo_auth.backends.MongoEngineBackend',
-# )
+TEMPLATE_CONTEXT_PROCESSORS = (
+   'django.contrib.auth.context_processors.auth',
+   'django.core.context_processors.debug',
+   'django.core.context_processors.i18n',
+   'django.core.context_processors.media',
+   'django.core.context_processors.static',
+   'django.core.context_processors.tz',
+   'django.contrib.messages.context_processors.messages',
+   'social.apps.django_app.context_processors.backends',
+   'social.apps.django_app.context_processors.login_redirect',
+)
+
+AUTHENTICATION_BACKENDS = (
+   'social.backends.facebook.FacebookOAuth2',
+   'social.backends.google.GoogleOAuth2',
+   'social.backends.twitter.TwitterOAuth',
+   'django.contrib.auth.backends.ModelBackend',
+)
+
+SOCIAL_AUTH_FACEBOOK_KEY = '233495323671495'
+SOCIAL_AUTH_FACEBOOK_SECRET ='d2391bb50c138f32761cb2aa7c22fe1d'
+
+SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '624247672272-ee5po8ap7p56kkb9bupdoa1gibkf0in7.apps.googleusercontent.com'
+SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'sdsA2HP-nXt3ycUUOlHsj6a9'
 
 # SESSION_ENGINE = 'django_mongoengine.sessions'
 

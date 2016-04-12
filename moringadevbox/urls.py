@@ -16,8 +16,13 @@ Including another URLconf
 from django.conf.urls import url
 from django.contrib import admin
 from mdevbox import views
+from django.conf.urls import patterns, include, url
+
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^register/', views.register, name="register")
+    url(r'^register/', views.register, name="register"),
+    url(r'^$', 'mdevbox.views.home', name='home'),
+    url('', include('social.apps.django_app.urls', namespace='social')),
+
 ]
