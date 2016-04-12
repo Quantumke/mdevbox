@@ -166,6 +166,8 @@ AUTHENTICATION_BACKENDS = (
    'social.backends.facebook.FacebookOAuth2',
    'social.backends.google.GoogleOAuth2',
    'social.backends.twitter.TwitterOAuth',
+   'social.backends.github.GithubOAuth2',
+   'social.backends.linkedin.LinkedinOAuth2',
    'django.contrib.auth.backends.ModelBackend',
 )
 
@@ -174,6 +176,15 @@ SOCIAL_AUTH_FACEBOOK_SECRET ='d2391bb50c138f32761cb2aa7c22fe1d'
 
 SOCIAL_AUTH_GOOGLE_OAUTH2_KEY = '624247672272-ee5po8ap7p56kkb9bupdoa1gibkf0in7.apps.googleusercontent.com'
 SOCIAL_AUTH_GOOGLE_OAUTH2_SECRET = 'sdsA2HP-nXt3ycUUOlHsj6a9'
+
+SOCIAL_AUTH_GITHUB_KEY = 'af06ca932a7a0032bc93'
+SOCIAL_AUTH_GITHUB_SECRET = 'e0f34643f41fabef824e6e1bcdc376fe35daef9f'
+
+SOCIAL_AUTH_LINKEDIN_OAUTH2_KEY = '77rjwgm5u2jiuk'
+SOCIAL_AUTH_LINKEDIN_OAUTH2_SECRET = '88bhqkaBJjKsPSP8'
+
+
+#LOGIN_REDIRECT_URL = 'http://127.0.0.1'
 
 # SESSION_ENGINE = 'django_mongoengine.sessions'
 
