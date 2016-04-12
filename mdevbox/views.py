@@ -1,4 +1,7 @@
 from django.shortcuts import render, render_to_response,get_object_or_404
+from django.shortcuts import render_to_response
+from django.template.context import RequestContext
+
 from mdevbox.forms import *
 from django.contrib.auth.models import User
 from django.template import RequestContext
@@ -35,3 +38,9 @@ def register(request):
             {'user_form':user_form, 'registered': registered},
             context_instance=RequestContext(request))
 
+def home(request):
+   context = RequestContext(request,
+                           {'request': request,
+                            'user': request.user})
+   return render_to_response('register.html',
+                             context_instance=context)
