@@ -1132,3 +1132,1019 @@ TypeError: ModelBase object argument after ** must be a mapping, not User
                 AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
                 AND pg_catalog.pg_table_is_visible(c.oid); args=None
 (0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.018) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 134, in get_response
+    resolver_match = resolver.resolve(request.path_info)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 376, in resolve
+    sub_match = pattern.resolve(new_path)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 248, in resolve
+    return ResolverMatch(self.callback, args, kwargs, self.name)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 255, in callback
+    self._callback = get_callable(self._callback_str)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 115, in get_callable
+    mod = import_module(mod_name)
+  File "/private/var/python/env/lib/python3.5/importlib/__init__.py", line 126, in import_module
+    return _bootstrap._gcd_import(name[level:], package, level)
+  File "<frozen importlib._bootstrap>", line 986, in _gcd_import
+  File "<frozen importlib._bootstrap>", line 969, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 956, in _find_and_load_unlocked
+ImportError: No module named 'views'
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/private/var/python/moringadevbox/mdevbox/views.py", line 43, in home
+    context_instance=context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loader.py", line 137, in render_to_string
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/private/var/python/moringadevbox/mdevbox/views.py", line 43, in home
+    context_instance=context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loader.py", line 137, in render_to_string
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in 'None'
+Exception while resolving variable 'name' in template 'unknown'.
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/private/var/python/moringadevbox/mdevbox/views.py", line 43, in home
+    context_instance=context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loader.py", line 137, in render_to_string
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: home.html
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 883, in _resolve_lookup
+    current = current[bit]
+TypeError: 'NoneType' object is not subscriptable
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 891, in _resolve_lookup
+    current = getattr(current, bit)
+AttributeError: 'NoneType' object has no attribute 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 898, in _resolve_lookup
+    current = current[int(bit)]
+ValueError: invalid literal for int() with base 10: 'name'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 905, in _resolve_lookup
+    (bit, current))  # missing attribute
+django.template.base.VariableDoesNotExist: Failed lookup for key [name] in 'None'
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.011) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.017) SELECT (1) AS "a" FROM "django_session" WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' LIMIT 1; args=('5z91kfcibzmnw4aozhye92nbiiqvejt5',)
+(0.014) INSERT INTO "django_session" ("session_key", "session_data", "expire_date") VALUES ('5z91kfcibzmnw4aozhye92nbiiqvejt5', 'Yjk0NGMzZmM5OWNmOTRiMzkwN2RjZGNhZTUyNzgxMjYzNjhmZDFmMDp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsIm5leHQiOiIvIn0=', '2016-04-26T14:33:36.031694+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', 'Yjk0NGMzZmM5OWNmOTRiMzkwN2RjZGNhZTUyNzgxMjYzNjhmZDFmMDp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsIm5leHQiOiIvIn0=', datetime.datetime(2016, 4, 26, 14, 33, 36, 31694, tzinfo=<UTC>))
+(0.034) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:33:40.595276+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 33, 40, 595276, tzinfo=<UTC>))
+Internal Server Error: /login/twitter/
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/social/apps/django_app/utils.py", line 51, in wrapper
+    return func(request, backend, *args, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/social/apps/django_app/views.py", line 19, in auth
+    return do_auth(request.backend, redirect_name=REDIRECT_FIELD_NAME)
+  File "/private/var/python/env/lib/python3.5/site-packages/social/actions.py", line 28, in do_auth
+    return backend.start()
+  File "/private/var/python/env/lib/python3.5/site-packages/social/backends/base.py", line 36, in start
+    return self.strategy.redirect(self.auth_url())
+  File "/private/var/python/env/lib/python3.5/site-packages/social/backends/oauth.py", line 165, in auth_url
+    token = self.set_unauthorized_token()
+  File "/private/var/python/env/lib/python3.5/site-packages/social/backends/oauth.py", line 221, in set_unauthorized_token
+    token = self.unauthorized_token()
+  File "/private/var/python/env/lib/python3.5/site-packages/social/backends/oauth.py", line 245, in unauthorized_token
+    method=self.REQUEST_TOKEN_METHOD
+  File "/private/var/python/env/lib/python3.5/site-packages/social/backends/base.py", line 222, in request
+    response = request(method, url, *args, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/requests/api.py", line 50, in request
+    response = session.request(method=method, url=url, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/requests/sessions.py", line 454, in request
+    prep = self.prepare_request(req)
+  File "/private/var/python/env/lib/python3.5/site-packages/requests/sessions.py", line 388, in prepare_request
+    hooks=merge_hooks(request.hooks, self.hooks),
+  File "/private/var/python/env/lib/python3.5/site-packages/requests/models.py", line 297, in prepare
+    self.prepare_auth(auth, url)
+  File "/private/var/python/env/lib/python3.5/site-packages/requests/models.py", line 487, in prepare_auth
+    r = auth(self)
+  File "/private/var/python/env/lib/python3.5/site-packages/requests_oauthlib/oauth1_auth.py", line 88, in __call__
+    unicode(r.url), unicode(r.method), None, r.headers)
+  File "/private/var/python/env/lib/python3.5/site-packages/oauthlib/oauth1/rfc5849/__init__.py", line 313, in sign
+    ('oauth_signature', self.get_oauth_signature(request)))
+  File "/private/var/python/env/lib/python3.5/site-packages/oauthlib/oauth1/rfc5849/__init__.py", line 128, in get_oauth_signature
+    uri, headers, body = self._render(request)
+  File "/private/var/python/env/lib/python3.5/site-packages/oauthlib/oauth1/rfc5849/__init__.py", line 210, in _render
+    request.oauth_params, request.headers, realm=realm)
+  File "/private/var/python/env/lib/python3.5/site-packages/oauthlib/oauth1/rfc5849/utils.py", line 31, in wrapper
+    return target(params, *args, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/oauthlib/oauth1/rfc5849/parameters.py", line 57, in prepare_headers
+    escaped_value = utils.escape(value)
+  File "/private/var/python/env/lib/python3.5/site-packages/oauthlib/oauth1/rfc5849/utils.py", line 56, in escape
+    'Got %s of type %s.' % (u, type(u)))
+ValueError: Only unicode objects are escapable. Got None of type <class 'NoneType'>.
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:33:43.183639+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 33, 43, 183639, tzinfo=<UTC>))
+(0.022) UPDATE "django_session" SET "session_data" = 'NDAwNjIyOWFiMWQ5NjAxZDJlNjZlZmYxYjc1ZmI5MGFiYWEyNjE2Yjp7ImZhY2Vib29rX3N0YXRlIjoiT28wUzhEVk5zeWdFUHNTcEVZR0lJRUVQWE8yR0I2Q0wiLCJnb29nbGUtb2F1dGgyX3N0YXRlIjoiZGdBYThNR3VHdm81YzlyMnJCZ2FuM1lPT3VLZ2lSZUoiLCJuZXh0IjoiLyJ9', "expire_date" = '2016-04-26T14:33:43.201953+00:00'::timestamptz WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'; args=('NDAwNjIyOWFiMWQ5NjAxZDJlNjZlZmYxYjc1ZmI5MGFiYWEyNjE2Yjp7ImZhY2Vib29rX3N0YXRlIjoiT28wUzhEVk5zeWdFUHNTcEVZR0lJRUVQWE8yR0I2Q0wiLCJnb29nbGUtb2F1dGgyX3N0YXRlIjoiZGdBYThNR3VHdm81YzlyMnJCZ2FuM1lPT3VLZ2lSZUoiLCJuZXh0IjoiLyJ9', datetime.datetime(2016, 4, 26, 14, 33, 43, 201953, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:33:49.777709+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 33, 49, 777709, tzinfo=<UTC>))
+(0.002) UPDATE "django_session" SET "session_data" = 'NDAwNjIyOWFiMWQ5NjAxZDJlNjZlZmYxYjc1ZmI5MGFiYWEyNjE2Yjp7ImZhY2Vib29rX3N0YXRlIjoiT28wUzhEVk5zeWdFUHNTcEVZR0lJRUVQWE8yR0I2Q0wiLCJnb29nbGUtb2F1dGgyX3N0YXRlIjoiZGdBYThNR3VHdm81YzlyMnJCZ2FuM1lPT3VLZ2lSZUoiLCJuZXh0IjoiLyJ9', "expire_date" = '2016-04-26T14:33:49.809824+00:00'::timestamptz WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'; args=('NDAwNjIyOWFiMWQ5NjAxZDJlNjZlZmYxYjc1ZmI5MGFiYWEyNjE2Yjp7ImZhY2Vib29rX3N0YXRlIjoiT28wUzhEVk5zeWdFUHNTcEVZR0lJRUVQWE8yR0I2Q0wiLCJnb29nbGUtb2F1dGgyX3N0YXRlIjoiZGdBYThNR3VHdm81YzlyMnJCZ2FuM1lPT3VLZ2lSZUoiLCJuZXh0IjoiLyJ9', datetime.datetime(2016, 4, 26, 14, 33, 49, 809824, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:34:25.264922+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 34, 25, 264922, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:34:25.384588+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 34, 25, 384588, tzinfo=<UTC>))
+(0.007) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:34:25.507183+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 34, 25, 507183, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:34:25.650900+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 34, 25, 650900, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:34:25.786336+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 34, 25, 786336, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:34:25.934224+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 34, 25, 934224, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:34:26.075240+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 34, 26, 75240, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:34:26.202454+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 34, 26, 202454, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:34:27.531419+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 34, 27, 531419, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-12T14:34:29.425658+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 12, 14, 34, 29, 425658, tzinfo=<UTC>))
+(0.002) UPDATE "django_session" SET "session_data" = 'NzUxMzRiZWI1MjIzMWJjNmQ1MWJhYzBkMjg0NjRhMDg3NTZmOGM5OTp7ImZhY2Vib29rX3N0YXRlIjoiT28wUzhEVk5zeWdFUHNTcEVZR0lJRUVQWE8yR0I2Q0wiLCJuZXh0IjoiLyIsImdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiJ9', "expire_date" = '2016-04-26T14:34:29.443061+00:00'::timestamptz WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'; args=('NzUxMzRiZWI1MjIzMWJjNmQ1MWJhYzBkMjg0NjRhMDg3NTZmOGM5OTp7ImZhY2Vib29rX3N0YXRlIjoiT28wUzhEVk5zeWdFUHNTcEVZR0lJRUVQWE8yR0I2Q0wiLCJuZXh0IjoiLyIsImdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiJ9', datetime.datetime(2016, 4, 26, 14, 34, 29, 443061, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:44:06.558864+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 44, 6, 558864, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:44:08.842710+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 44, 8, 842710, tzinfo=<UTC>))
+(0.006) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:44:09.016842+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 44, 9, 16842, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:44:09.150539+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 44, 9, 150539, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:44:09.308303+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 44, 9, 308303, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:44:09.457677+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 44, 9, 457677, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:44:09.599658+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 44, 9, 599658, tzinfo=<UTC>))
+(0.006) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:44:09.724022+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 44, 9, 724022, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:44:09.883222+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 44, 9, 883222, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:44:10.046126+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 44, 10, 46126, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:45:22.688383+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 45, 22, 688383, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:45:35.348179+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 45, 35, 348179, tzinfo=<UTC>))
+(0.008) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:45:37.279462+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 45, 37, 279462, tzinfo=<UTC>))
+(0.006) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:45:37.281929+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 45, 37, 281929, tzinfo=<UTC>))
+(0.004) UPDATE "django_session" SET "session_data" = 'MTI4M2NiMTk0MTlhYWMxZWQwNmVkMzRhMzg0OGI2NGFmZThkODM0ODp7ImZhY2Vib29rX3N0YXRlIjoiT28wUzhEVk5zeWdFUHNTcEVZR0lJRUVQWE8yR0I2Q0wiLCJnb29nbGUtb2F1dGgyX3N0YXRlIjoiZGdBYThNR3VHdm81YzlyMnJCZ2FuM1lPT3VLZ2lSZUoiLCJuZXh0IjoiLyIsImdpdGh1Yl9zdGF0ZSI6ImozQmFpaHYyRm81THNkUHR0dGczS0RNeXBTMUtXb0Z3In0=', "expire_date" = '2016-04-27T14:45:37.314364+00:00'::timestamptz WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'; args=('MTI4M2NiMTk0MTlhYWMxZWQwNmVkMzRhMzg0OGI2NGFmZThkODM0ODp7ImZhY2Vib29rX3N0YXRlIjoiT28wUzhEVk5zeWdFUHNTcEVZR0lJRUVQWE8yR0I2Q0wiLCJnb29nbGUtb2F1dGgyX3N0YXRlIjoiZGdBYThNR3VHdm81YzlyMnJCZ2FuM1lPT3VLZ2lSZUoiLCJuZXh0IjoiLyIsImdpdGh1Yl9zdGF0ZSI6ImozQmFpaHYyRm81THNkUHR0dGczS0RNeXBTMUtXb0Z3In0=', datetime.datetime(2016, 4, 27, 14, 45, 37, 314364, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.024) UPDATE "django_session" SET "session_data" = 'NjgxZWMyNTM3M2IzMWQ1MGIxMmExNjBiYzFjNzYzODNhYjI5ZjBhNzp7ImZhY2Vib29rX3N0YXRlIjoiT28wUzhEVk5zeWdFUHNTcEVZR0lJRUVQWE8yR0I2Q0wiLCJnb29nbGUtb2F1dGgyX3N0YXRlIjoiZGdBYThNR3VHdm81YzlyMnJCZ2FuM1lPT3VLZ2lSZUoiLCJuZXh0IjoiLyIsImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIn0=', "expire_date" = '2016-04-27T14:45:37.318304+00:00'::timestamptz WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'; args=('NjgxZWMyNTM3M2IzMWQ1MGIxMmExNjBiYzFjNzYzODNhYjI5ZjBhNzp7ImZhY2Vib29rX3N0YXRlIjoiT28wUzhEVk5zeWdFUHNTcEVZR0lJRUVQWE8yR0I2Q0wiLCJnb29nbGUtb2F1dGgyX3N0YXRlIjoiZGdBYThNR3VHdm81YzlyMnJCZ2FuM1lPT3VLZ2lSZUoiLCJuZXh0IjoiLyIsImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIn0=', datetime.datetime(2016, 4, 27, 14, 45, 37, 318304, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.008) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:46:26.639667+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 46, 26, 639667, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:46:26.660026+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 46, 26, 660026, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:46:26.791258+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 46, 26, 791258, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:46:26.945284+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 46, 26, 945284, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:46:27.084910+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 46, 27, 84910, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:46:27.210692+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 46, 27, 210692, tzinfo=<UTC>))
+(0.007) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:46:29.115929+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 46, 29, 115929, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:46:31.236428+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 46, 31, 236428, tzinfo=<UTC>))
+(0.001) UPDATE "django_session" SET "session_data" = 'Mzg1ZDk4NGUxNzkwODlhOWViNTIyMjIwZmM4YWU5NzlmYzc2MDhiMjp7Im5leHQiOiIvIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsImdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIn0=', "expire_date" = '2016-04-27T14:46:31.254579+00:00'::timestamptz WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'; args=('Mzg1ZDk4NGUxNzkwODlhOWViNTIyMjIwZmM4YWU5NzlmYzc2MDhiMjp7Im5leHQiOiIvIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsImdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIn0=', datetime.datetime(2016, 4, 27, 14, 46, 31, 254579, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.009) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.004) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-13T14:49:20.061595+00:00'::timestamptz AND "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'); args=(datetime.datetime(2016, 4, 13, 14, 49, 20, 61595, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-13T14:49:22.115388+00:00'::timestamptz AND "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'); args=(datetime.datetime(2016, 4, 13, 14, 49, 22, 115388, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.001) UPDATE "django_session" SET "session_data" = 'MTYwMDlkNDJhNGQ0YTdlZTU2MzNiMzczOThjYmNjN2FhY2ZmOTZlZTp7ImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwibmV4dCI6Ii8iLCJmYWNlYm9va19zdGF0ZSI6Ik9vMFM4RFZOc3lnRVBzU3BFWUdJSUVFUFhPMkdCNkNMIiwiZ29vZ2xlLW9hdXRoMl9zdGF0ZSI6ImRnQWE4TUd1R3ZvNWM5cjJyQmdhbjNZT091S2dpUmVKIn0=', "expire_date" = '2016-04-27T14:49:22.133735+00:00'::timestamptz WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'; args=('MTYwMDlkNDJhNGQ0YTdlZTU2MzNiMzczOThjYmNjN2FhY2ZmOTZlZTp7ImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwibmV4dCI6Ii8iLCJmYWNlYm9va19zdGF0ZSI6Ik9vMFM4RFZOc3lnRVBzU3BFWUdJSUVFUFhPMkdCNkNMIiwiZ29vZ2xlLW9hdXRoMl9zdGF0ZSI6ImRnQWE4TUd1R3ZvNWM5cjJyQmdhbjNZT091S2dpUmVKIn0=', datetime.datetime(2016, 4, 27, 14, 49, 22, 133735, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-13T14:51:46.756150+00:00'::timestamptz AND "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'); args=(datetime.datetime(2016, 4, 13, 14, 51, 46, 756150, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.001) UPDATE "django_session" SET "session_data" = 'N2JlNDE4YjBjMzVkMjcyOGM4ODRlODAxMTk0YTI4YWQwMDFiNDJjMDp7ImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsImdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsIm5leHQiOiIvIn0=', "expire_date" = '2016-04-27T14:51:46.773541+00:00'::timestamptz WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'; args=('N2JlNDE4YjBjMzVkMjcyOGM4ODRlODAxMTk0YTI4YWQwMDFiNDJjMDp7ImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsImdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsIm5leHQiOiIvIn0=', datetime.datetime(2016, 4, 27, 14, 51, 46, 773541, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-13T14:56:03.975095+00:00'::timestamptz AND "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'); args=(datetime.datetime(2016, 4, 13, 14, 56, 3, 975095, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-13T14:56:03.905351+00:00'::timestamptz AND "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'); args=(datetime.datetime(2016, 4, 13, 14, 56, 3, 905351, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-13T14:56:04.253916+00:00'::timestamptz AND "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'); args=(datetime.datetime(2016, 4, 13, 14, 56, 4, 253916, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+CREATE TABLE "social_auth_association" ("id" serial NOT NULL PRIMARY KEY, "server_url" varchar(255) NOT NULL, "handle" varchar(255) NOT NULL, "secret" varchar(255) NOT NULL, "issued" integer NOT NULL, "lifetime" integer NOT NULL, "assoc_type" varchar(64) NOT NULL); (params None)
+(0.036) CREATE TABLE "social_auth_association" ("id" serial NOT NULL PRIMARY KEY, "server_url" varchar(255) NOT NULL, "handle" varchar(255) NOT NULL, "secret" varchar(255) NOT NULL, "issued" integer NOT NULL, "lifetime" integer NOT NULL, "assoc_type" varchar(64) NOT NULL); args=None
+CREATE TABLE "social_auth_code" ("id" serial NOT NULL PRIMARY KEY, "email" varchar(75) NOT NULL, "code" varchar(32) NOT NULL, "verified" boolean NOT NULL); (params None)
+(0.005) CREATE TABLE "social_auth_code" ("id" serial NOT NULL PRIMARY KEY, "email" varchar(75) NOT NULL, "code" varchar(32) NOT NULL, "verified" boolean NOT NULL); args=None
+CREATE TABLE "social_auth_nonce" ("id" serial NOT NULL PRIMARY KEY, "server_url" varchar(255) NOT NULL, "timestamp" integer NOT NULL, "salt" varchar(65) NOT NULL); (params None)
+(0.006) CREATE TABLE "social_auth_nonce" ("id" serial NOT NULL PRIMARY KEY, "server_url" varchar(255) NOT NULL, "timestamp" integer NOT NULL, "salt" varchar(65) NOT NULL); args=None
+CREATE TABLE "social_auth_usersocialauth" ("id" serial NOT NULL PRIMARY KEY, "provider" varchar(32) NOT NULL, "uid" varchar(255) NOT NULL, "extra_data" text NOT NULL, "user_id" integer NOT NULL); (params None)
+(0.007) CREATE TABLE "social_auth_usersocialauth" ("id" serial NOT NULL PRIMARY KEY, "provider" varchar(32) NOT NULL, "uid" varchar(255) NOT NULL, "extra_data" text NOT NULL, "user_id" integer NOT NULL); args=None
+ALTER TABLE "social_auth_usersocialauth" ADD CONSTRAINT "social_auth_usersocialauth_provider_e6b5e668_uniq" UNIQUE ("provider", "uid"); (params [])
+(0.004) ALTER TABLE "social_auth_usersocialauth" ADD CONSTRAINT "social_auth_usersocialauth_provider_e6b5e668_uniq" UNIQUE ("provider", "uid"); args=[]
+ALTER TABLE "social_auth_code" ADD CONSTRAINT "social_auth_code_email_801b2d02_uniq" UNIQUE ("email", "code"); (params [])
+(0.002) ALTER TABLE "social_auth_code" ADD CONSTRAINT "social_auth_code_email_801b2d02_uniq" UNIQUE ("email", "code"); args=[]
+ALTER TABLE "social_auth_nonce" ADD CONSTRAINT "social_auth_nonce_server_url_f6284463_uniq" UNIQUE ("server_url", "timestamp", "salt"); (params [])
+(0.002) ALTER TABLE "social_auth_nonce" ADD CONSTRAINT "social_auth_nonce_server_url_f6284463_uniq" UNIQUE ("server_url", "timestamp", "salt"); args=[]
+CREATE INDEX "social_auth_code_c1336794" ON "social_auth_code" ("code"); (params [])
+(0.019) CREATE INDEX "social_auth_code_c1336794" ON "social_auth_code" ("code"); args=[]
+CREATE INDEX "social_auth_code_code_a2393167_like" ON "social_auth_code" ("code" varchar_pattern_ops); (params [])
+(0.002) CREATE INDEX "social_auth_code_code_a2393167_like" ON "social_auth_code" ("code" varchar_pattern_ops); args=[]
+ALTER TABLE "social_auth_usersocialauth" ADD CONSTRAINT "social_auth_usersocialauth_user_id_17d28448_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+(0.005) ALTER TABLE "social_auth_usersocialauth" ADD CONSTRAINT "social_auth_usersocialauth_user_id_17d28448_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+CREATE INDEX "social_auth_usersocialauth_e8701ad4" ON "social_auth_usersocialauth" ("user_id"); (params [])
+(0.003) CREATE INDEX "social_auth_usersocialauth_e8701ad4" ON "social_auth_usersocialauth" ("user_id"); args=[]
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('default', '0001_initial', '2016-04-13T14:56:46.110214+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('default', '0001_initial', datetime.datetime(2016, 4, 13, 14, 56, 46, 110214, tzinfo=<UTC>))
+(0.249) 
+            SELECT
+                kc.constraint_name,
+                kc.column_name,
+                c.constraint_type,
+                array(SELECT table_name::text || '.' || column_name::text
+                      FROM information_schema.constraint_column_usage
+                      WHERE constraint_name = kc.constraint_name)
+            FROM information_schema.key_column_usage AS kc
+            JOIN information_schema.table_constraints AS c ON
+                kc.table_schema = c.table_schema AND
+                kc.table_name = c.table_name AND
+                kc.constraint_name = c.constraint_name
+            WHERE
+                kc.table_schema = 'public' AND
+                kc.table_name = 'social_auth_usersocialauth'
+            ORDER BY kc.ordinal_position ASC
+        ; args=['public', 'social_auth_usersocialauth']
+(0.020) 
+            SELECT kc.constraint_name, kc.column_name
+            FROM information_schema.constraint_column_usage AS kc
+            JOIN information_schema.table_constraints AS c ON
+                kc.table_schema = c.table_schema AND
+                kc.table_name = c.table_name AND
+                kc.constraint_name = c.constraint_name
+            WHERE
+                c.constraint_type = 'CHECK' AND
+                kc.table_schema = 'public' AND
+                kc.table_name = 'social_auth_usersocialauth'
+        ; args=['public', 'social_auth_usersocialauth']
+(0.011) 
+            SELECT
+                c2.relname,
+                ARRAY(
+                    SELECT (SELECT attname FROM pg_catalog.pg_attribute WHERE attnum = i AND attrelid = c.oid)
+                    FROM unnest(idx.indkey) i
+                ),
+                idx.indisunique,
+                idx.indisprimary
+            FROM pg_catalog.pg_class c, pg_catalog.pg_class c2,
+                pg_catalog.pg_index idx
+            WHERE c.oid = idx.indrelid
+                AND idx.indexrelid = c2.oid
+                AND c.relname = 'social_auth_usersocialauth'
+        ; args=['social_auth_usersocialauth']
+ALTER TABLE "social_auth_usersocialauth" DROP CONSTRAINT "social_auth_usersocialauth_user_id_17d28448_fk_auth_user_id"; (params [])
+(0.033) ALTER TABLE "social_auth_usersocialauth" DROP CONSTRAINT "social_auth_usersocialauth_user_id_17d28448_fk_auth_user_id"; args=[]
+ALTER TABLE "social_auth_usersocialauth" ADD CONSTRAINT "social_auth_usersocialauth_user_id_17d28448_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+(0.005) ALTER TABLE "social_auth_usersocialauth" ADD CONSTRAINT "social_auth_usersocialauth_user_id_17d28448_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('default', '0002_add_related_name', '2016-04-13T14:56:46.458844+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('default', '0002_add_related_name', datetime.datetime(2016, 4, 13, 14, 56, 46, 458844, tzinfo=<UTC>))
+ALTER TABLE "social_auth_code" ALTER COLUMN "email" TYPE varchar(254) USING "email"::varchar(254); (params [])
+(0.004) ALTER TABLE "social_auth_code" ALTER COLUMN "email" TYPE varchar(254) USING "email"::varchar(254); args=[]
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('default', '0003_alter_email_max_length', '2016-04-13T14:56:46.479389+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('default', '0003_alter_email_max_length', datetime.datetime(2016, 4, 13, 14, 56, 46, 479389, tzinfo=<UTC>))
+CREATE TABLE "mdevbox_developers" ("id" serial NOT NULL PRIMARY KEY, "speciality" varchar(100) NOT NULL, "email" varchar(100) NOT NULL, "yoe" varchar(100) NOT NULL, "user_id" integer NOT NULL UNIQUE); (params None)
+(0.009) CREATE TABLE "mdevbox_developers" ("id" serial NOT NULL PRIMARY KEY, "speciality" varchar(100) NOT NULL, "email" varchar(100) NOT NULL, "yoe" varchar(100) NOT NULL, "user_id" integer NOT NULL UNIQUE); args=None
+ALTER TABLE "mdevbox_reg_user" ADD COLUMN "role" varchar(100) DEFAULT %s NOT NULL; (params ['role'])
+(0.029) ALTER TABLE "mdevbox_reg_user" ADD COLUMN "role" varchar(100) DEFAULT 'role' NOT NULL; args=['role']
+ALTER TABLE "mdevbox_reg_user" ALTER COLUMN "role" DROP DEFAULT; (params [])
+(0.001) ALTER TABLE "mdevbox_reg_user" ALTER COLUMN "role" DROP DEFAULT; args=[]
+ALTER TABLE "mdevbox_developers" ADD CONSTRAINT "mdevbox_developers_user_id_60af7d64_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; (params [])
+(0.003) ALTER TABLE "mdevbox_developers" ADD CONSTRAINT "mdevbox_developers_user_id_60af7d64_fk_auth_user_id" FOREIGN KEY ("user_id") REFERENCES "auth_user" ("id") DEFERRABLE INITIALLY DEFERRED; args=[]
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('mdevbox', '0002_auto_20160413_0956', '2016-04-13T14:56:46.610904+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('mdevbox', '0002_auto_20160413_0956', datetime.datetime(2016, 4, 13, 14, 56, 46, 610904, tzinfo=<UTC>))
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" = 'logentry'); args=('admin', 'logentry')
+(0.002) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'permission'); args=('auth', 'permission')
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'group'); args=('auth', 'group')
+(0.005) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'user'); args=('auth', 'user')
+(0.002) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" = 'contenttype'); args=('contenttypes', 'contenttype')
+(0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" = 'session'); args=('sessions', 'session')
+(0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mongo_auth' AND "django_content_type"."model" = 'mongouser'); args=('mongo_auth', 'mongouser')
+(0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(7,)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'mongo_auth'; args=('mongo_auth',)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'usersocialauth'); args=('default', 'usersocialauth')
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'usersocialauth'); args=('default', 'usersocialauth')
+(0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('default', 'usersocialauth') RETURNING "django_content_type"."id"; args=('default', 'usersocialauth')
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'nonce'); args=('default', 'nonce')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'nonce'); args=('default', 'nonce')
+(0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('default', 'nonce') RETURNING "django_content_type"."id"; args=('default', 'nonce')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'association'); args=('default', 'association')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'association'); args=('default', 'association')
+(0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('default', 'association') RETURNING "django_content_type"."id"; args=('default', 'association')
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'code'); args=('default', 'code')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'code'); args=('default', 'code')
+(0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('default', 'code') RETURNING "django_content_type"."id"; args=('default', 'code')
+(0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (9, 10, 11, 12) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(9, 10, 11, 12)
+(0.001) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add user social auth', 9, 'add_usersocialauth'), ('Can change user social auth', 9, 'change_usersocialauth'), ('Can delete user social auth', 9, 'delete_usersocialauth'), ('Can add nonce', 10, 'add_nonce'), ('Can change nonce', 10, 'change_nonce'), ('Can delete nonce', 10, 'delete_nonce'), ('Can add association', 11, 'add_association'), ('Can change association', 11, 'change_association'), ('Can delete association', 11, 'delete_association'), ('Can add code', 12, 'add_code'), ('Can change code', 12, 'change_code'), ('Can delete code', 12, 'delete_code'); args=('Can add user social auth', 9, 'add_usersocialauth', 'Can change user social auth', 9, 'change_usersocialauth', 'Can delete user social auth', 9, 'delete_usersocialauth', 'Can add nonce', 10, 'add_nonce', 'Can change nonce', 10, 'change_nonce', 'Can delete nonce', 10, 'delete_nonce', 'Can add association', 11, 'add_association', 'Can change association', 11, 'change_association', 'Can delete association', 11, 'delete_association', 'Can add code', 12, 'add_code', 'Can change code', 12, 'change_code', 'Can delete code', 12, 'delete_code')
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'default'; args=('default',)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mdevbox' AND "django_content_type"."model" = 'reg_user'); args=('mdevbox', 'reg_user')
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mdevbox' AND "django_content_type"."model" = 'developers'); args=('mdevbox', 'developers')
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mdevbox' AND "django_content_type"."model" = 'developers'); args=('mdevbox', 'developers')
+(0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('mdevbox', 'developers') RETURNING "django_content_type"."id"; args=('mdevbox', 'developers')
+(0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 13) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 13)
+(0.001) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add developers', 13, 'add_developers'), ('Can change developers', 13, 'change_developers'), ('Can delete developers', 13, 'delete_developers'); args=('Can add developers', 13, 'add_developers', 'Can change developers', 13, 'change_developers', 'Can delete developers', 13, 'delete_developers')
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'mdevbox'; args=('mdevbox',)
+(0.009) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:57:22.521741+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 57, 22, 521741, tzinfo=<UTC>))
+(0.002) UPDATE "django_session" SET "session_data" = 'YjM2N2ZlZGQ1OGE2ZGYyNWI5OWViMzFiZDc5YmU2ODgzOWRmMWE5Nzp7ImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwiZ29vZ2xlLW9hdXRoMl9zdGF0ZSI6ImRnQWE4TUd1R3ZvNWM5cjJyQmdhbjNZT091S2dpUmVKIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsIm5leHQiOiIvIn0=', "expire_date" = '2016-04-27T14:57:22.545405+00:00'::timestamptz WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'; args=('YjM2N2ZlZGQ1OGE2ZGYyNWI5OWViMzFiZDc5YmU2ODgzOWRmMWE5Nzp7ImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwiZ29vZ2xlLW9hdXRoMl9zdGF0ZSI6ImRnQWE4TUd1R3ZvNWM5cjJyQmdhbjNZT091S2dpUmVKIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsIm5leHQiOiIvIn0=', datetime.datetime(2016, 4, 27, 14, 57, 22, 545405, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:57:36.763142+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 57, 36, 763142, tzinfo=<UTC>))
+Internal Server Error: /complete/github/
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/views/decorators/cache.py", line 57, in _wrapped_view_func
+    response = view_func(request, *args, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/views/decorators/csrf.py", line 58, in wrapped_view
+    return view_func(*args, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/social/apps/django_app/utils.py", line 51, in wrapper
+    return func(request, backend, *args, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/social/apps/django_app/views.py", line 28, in complete
+    redirect_name=REDIRECT_FIELD_NAME, *args, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/social/actions.py", line 43, in do_complete
+    user = backend.complete(user=user, *args, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/social/backends/base.py", line 41, in complete
+    return self.auth_complete(*args, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/social/utils.py", line 229, in wrapper
+    return func(*args, **kwargs)
+  File "/private/var/python/env/lib/python3.5/site-packages/social/backends/oauth.py", line 385, in auth_complete
+    self.process_error(response)
+  File "/private/var/python/env/lib/python3.5/site-packages/social/backends/oauth.py", line 368, in process_error
+    data['error'])
+social.exceptions.AuthFailed: Authentication failed: The client_id and/or client_secret passed are incorrect.
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:58:48.791435+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 58, 48, 791435, tzinfo=<UTC>))
+(0.006) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:58:48.891364+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 58, 48, 891364, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:58:49.183584+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 58, 49, 183584, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:58:51.277150+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 58, 51, 277150, tzinfo=<UTC>))
+(0.001) UPDATE "django_session" SET "session_data" = 'ZWEwYWEzMDUzNmIwZjdmNTkwZjAzMjA3Nzk5NjA1MDIzNGI0NDBiZjp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsIm5leHQiOiIvIn0=', "expire_date" = '2016-04-27T14:58:51.308141+00:00'::timestamptz WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'; args=('ZWEwYWEzMDUzNmIwZjdmNTkwZjAzMjA3Nzk5NjA1MDIzNGI0NDBiZjp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsIm5leHQiOiIvIn0=', datetime.datetime(2016, 4, 27, 14, 58, 51, 308141, tzinfo=<UTC>), '5z91kfcibzmnw4aozhye92nbiiqvejt5')
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5' AND "django_session"."expire_date" > '2016-04-13T14:58:53.273246+00:00'::timestamptz); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5', datetime.datetime(2016, 4, 13, 14, 58, 53, 273246, tzinfo=<UTC>))
+(0.004) SELECT "social_auth_usersocialauth"."id", "social_auth_usersocialauth"."user_id", "social_auth_usersocialauth"."provider", "social_auth_usersocialauth"."uid", "social_auth_usersocialauth"."extra_data", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "social_auth_usersocialauth" INNER JOIN "auth_user" ON ("social_auth_usersocialauth"."user_id" = "auth_user"."id") WHERE ("social_auth_usersocialauth"."provider" = 'github' AND "social_auth_usersocialauth"."uid" = '11975994'); args=('github', '11975994')
+(0.001) SELECT COUNT(*) AS "__count" FROM "auth_user" WHERE "auth_user"."username" = 'Quantumke'; args=('Quantumke',)
+(0.021) INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES ('!HLbIzDW2z1h7kWIXHvzhK8LLJm3jmy2JdtECQSLq', NULL, false, 'Quantumke', '', '', '', false, true, '2016-04-13T14:59:04.398338+00:00'::timestamptz) RETURNING "auth_user"."id"; args=('!HLbIzDW2z1h7kWIXHvzhK8LLJm3jmy2JdtECQSLq', None, False, 'Quantumke', '', '', '', False, True, datetime.datetime(2016, 4, 13, 14, 59, 4, 398338, tzinfo=<UTC>))
+(0.001) INSERT INTO "social_auth_usersocialauth" ("user_id", "provider", "uid", "extra_data") VALUES (2, 'github', '11975994', '{}') RETURNING "social_auth_usersocialauth"."id"; args=(2, 'github', '11975994', '{}')
+(0.021) UPDATE "social_auth_usersocialauth" SET "user_id" = 2, "provider" = 'github', "uid" = '11975994', "extra_data" = '{"access_token": "8781839c0af8e0d95a8e488460873bc50b719155", "expires": null, "id": 11975994, "login": "Quantumke"}' WHERE "social_auth_usersocialauth"."id" = 1; args=(2, 'github', '11975994', '{"access_token": "8781839c0af8e0d95a8e488460873bc50b719155", "expires": null, "id": 11975994, "login": "Quantumke"}', 1)
+(0.001) UPDATE "auth_user" SET "password" = '!HLbIzDW2z1h7kWIXHvzhK8LLJm3jmy2JdtECQSLq', "last_login" = NULL, "is_superuser" = false, "username" = 'Quantumke', "first_name" = 'Ben', "last_name" = '', "email" = '', "is_staff" = false, "is_active" = true, "date_joined" = '2016-04-13T14:59:04.398338+00:00'::timestamptz WHERE "auth_user"."id" = 2; args=('!HLbIzDW2z1h7kWIXHvzhK8LLJm3jmy2JdtECQSLq', False, 'Quantumke', 'Ben', '', '', False, True, datetime.datetime(2016, 4, 13, 14, 59, 4, 398338, tzinfo=<UTC>), 2)
+(0.001) SELECT (1) AS "a" FROM "django_session" WHERE "django_session"."session_key" = 'qkwy32h1b1lnxgq5wm5t7715pbv4b788' LIMIT 1; args=('qkwy32h1b1lnxgq5wm5t7715pbv4b788',)
+(0.001) INSERT INTO "django_session" ("session_key", "session_data", "expire_date") VALUES ('qkwy32h1b1lnxgq5wm5t7715pbv4b788', 'ZWEwYWEzMDUzNmIwZjdmNTkwZjAzMjA3Nzk5NjA1MDIzNGI0NDBiZjp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsIm5leHQiOiIvIn0=', '2016-04-27T14:59:04.455216+00:00'::timestamptz); args=('qkwy32h1b1lnxgq5wm5t7715pbv4b788', 'ZWEwYWEzMDUzNmIwZjdmNTkwZjAzMjA3Nzk5NjA1MDIzNGI0NDBiZjp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsIm5leHQiOiIvIn0=', datetime.datetime(2016, 4, 27, 14, 59, 4, 455216, tzinfo=<UTC>))
+(0.000) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE "django_session"."session_key" = '5z91kfcibzmnw4aozhye92nbiiqvejt5'; args=('5z91kfcibzmnw4aozhye92nbiiqvejt5',)
+(0.001) DELETE FROM "django_session" WHERE "django_session"."session_key" IN ('5z91kfcibzmnw4aozhye92nbiiqvejt5'); args=('5z91kfcibzmnw4aozhye92nbiiqvejt5',)
+(0.001) UPDATE "auth_user" SET "last_login" = '2016-04-13T14:59:04.462603+00:00'::timestamptz WHERE "auth_user"."id" = 2; args=(datetime.datetime(2016, 4, 13, 14, 59, 4, 462603, tzinfo=<UTC>), 2)
+(0.001) UPDATE "django_session" SET "session_data" = 'YzE0Zjg4MWY4YWNjNTQ5MTk5NjZjNGE5NDU5NzBlZWNiNWY2MWI2OTp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsIm5leHQiOiIvIiwic29jaWFsX2F1dGhfbGFzdF9sb2dpbl9iYWNrZW5kIjoiZ2l0aHViIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoic29jaWFsLmJhY2tlbmRzLmdpdGh1Yi5HaXRodWJPQXV0aDIiLCJfYXV0aF91c2VyX2lkIjoiMiIsImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsIl9hdXRoX3VzZXJfaGFzaCI6IjIwZWU0ZDJjZTRmNTcyNDNkMDQxMGFlNDM3MTRmZDM0ZDY5MDRmMDYifQ==', "expire_date" = '2016-04-27T14:59:04.465833+00:00'::timestamptz WHERE "django_session"."session_key" = 'qkwy32h1b1lnxgq5wm5t7715pbv4b788'; args=('YzE0Zjg4MWY4YWNjNTQ5MTk5NjZjNGE5NDU5NzBlZWNiNWY2MWI2OTp7Imdvb2dsZS1vYXV0aDJfc3RhdGUiOiJkZ0FhOE1HdUd2bzVjOXIyckJnYW4zWU9PdUtnaVJlSiIsIm5leHQiOiIvIiwic29jaWFsX2F1dGhfbGFzdF9sb2dpbl9iYWNrZW5kIjoiZ2l0aHViIiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoic29jaWFsLmJhY2tlbmRzLmdpdGh1Yi5HaXRodWJPQXV0aDIiLCJfYXV0aF91c2VyX2lkIjoiMiIsImdpdGh1Yl9zdGF0ZSI6InRyU0RveGJyd3NPOFBYdDRHOTBLN2JIVHBZUEZIaFlRIiwiZmFjZWJvb2tfc3RhdGUiOiJPbzBTOERWTnN5Z0VQc1NwRVlHSUlFRVBYTzJHQjZDTCIsIl9hdXRoX3VzZXJfaGFzaCI6IjIwZWU0ZDJjZTRmNTcyNDNkMDQxMGFlNDM3MTRmZDM0ZDY5MDRmMDYifQ==', datetime.datetime(2016, 4, 27, 14, 59, 4, 465833, tzinfo=<UTC>), 'qkwy32h1b1lnxgq5wm5t7715pbv4b788')
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'qkwy32h1b1lnxgq5wm5t7715pbv4b788' AND "django_session"."expire_date" > '2016-04-13T14:59:04.480667+00:00'::timestamptz); args=('qkwy32h1b1lnxgq5wm5t7715pbv4b788', datetime.datetime(2016, 4, 13, 14, 59, 4, 480667, tzinfo=<UTC>))
+(0.002) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 586, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'moringadevbox.auth'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 507, in render
+    current_app=current_app)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 596, in reverse
+    key)
+django.core.urlresolvers.NoReverseMatch: 'moringadevbox.auth' is not a registered namespace
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/private/var/python/moringadevbox/mdevbox/views.py", line 46, in home
+    context_instance=context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loader.py", line 114, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/engine.py", line 240, in render_to_string
+    return t.render(context_instance)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 206, in render
+    return self._render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 959, in render_annotated
+    return self.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loader_tags.py", line 60, in render
+    result = self.nodelist.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 959, in render_annotated
+    return self.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 326, in render
+    return nodelist.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 959, in render_annotated
+    return self.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/utils/six.py", line 686, in reraise
+    raise value
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 596, in reverse
+    key)
+django.core.urlresolvers.NoReverseMatch: 'auth' is not a registered namespace
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/private/var/python/moringadevbox/mdevbox/views.py", line 46, in home
+    context_instance=context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loader.py", line 114, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/engine.py", line 231, in render_to_string
+    t = self.get_template(template_name, dirs)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/engine.py", line 190, in get_template
+    template, origin = self.find_template(template_name, dirs)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/engine.py", line 157, in find_template
+    name, template_dirs=dirs, skip=skip,
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loaders/base.py", line 46, in get_template
+    contents, origin, origin.template_name, self.engine,
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 189, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 231, in compile_nodelist
+    return parser.parse()
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    raise self.error(token, e)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 514, in parse
+    compiled_result = compile_func(self, token)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loader_tags.py", line 241, in do_block
+    nodelist = parser.parse(('endblock',))
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 516, in parse
+    raise self.error(token, e)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 514, in parse
+    compiled_result = compile_func(self, token)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 1184, in load
+    subset = load_from_library(lib, name, bits[1:-2])
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 1157, in load_from_library
+    name, label,
+django.template.exceptions.TemplateSyntaxError: 'url' is not a valid tag or filter in tag library 'future'
+(0.010) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'qkwy32h1b1lnxgq5wm5t7715pbv4b788' AND "django_session"."expire_date" > '2016-04-13T15:05:00.354956+00:00'::timestamptz); args=('qkwy32h1b1lnxgq5wm5t7715pbv4b788', datetime.datetime(2016, 4, 13, 15, 5, 0, 354956, tzinfo=<UTC>))
+(0.002) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 586, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'moringadevbox.auth'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 507, in render
+    current_app=current_app)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 596, in reverse
+    key)
+django.core.urlresolvers.NoReverseMatch: 'moringadevbox.auth' is not a registered namespace
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/private/var/python/moringadevbox/mdevbox/views.py", line 46, in home
+    context_instance=context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loader.py", line 114, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/engine.py", line 240, in render_to_string
+    return t.render(context_instance)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 206, in render
+    return self._render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 959, in render_annotated
+    return self.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loader_tags.py", line 60, in render
+    result = self.nodelist.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 959, in render_annotated
+    return self.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 326, in render
+    return nodelist.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 959, in render_annotated
+    return self.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/utils/six.py", line 686, in reraise
+    raise value
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 596, in reverse
+    key)
+django.core.urlresolvers.NoReverseMatch: 'auth' is not a registered namespace
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'qkwy32h1b1lnxgq5wm5t7715pbv4b788' AND "django_session"."expire_date" > '2016-04-13T15:05:37.582744+00:00'::timestamptz); args=('qkwy32h1b1lnxgq5wm5t7715pbv4b788', datetime.datetime(2016, 4, 13, 15, 5, 37, 582744, tzinfo=<UTC>))
+(0.002) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+Internal Server Error: /
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 586, in reverse
+    extra, resolver = resolver.namespace_dict[ns]
+KeyError: 'moringadevbox.social'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 507, in render
+    current_app=current_app)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 596, in reverse
+    key)
+django.core.urlresolvers.NoReverseMatch: 'moringadevbox.social' is not a registered namespace
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 149, in get_response
+    response = self.process_exception_by_middleware(e, request)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/handlers/base.py", line 147, in get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "/private/var/python/moringadevbox/mdevbox/views.py", line 46, in home
+    context_instance=context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/shortcuts.py", line 45, in render_to_response
+    using=using)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loader.py", line 114, in render_to_string
+    template_name, context, context_instance, dirs, dictionary)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/engine.py", line 240, in render_to_string
+    return t.render(context_instance)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 206, in render
+    return self._render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 197, in _render
+    return self.nodelist.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 959, in render_annotated
+    return self.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/loader_tags.py", line 60, in render
+    result = self.nodelist.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 959, in render_annotated
+    return self.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 326, in render
+    return nodelist.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 992, in render
+    bit = node.render_annotated(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/base.py", line 959, in render_annotated
+    return self.render(context)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 513, in render
+    six.reraise(*exc_info)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/utils/six.py", line 686, in reraise
+    raise value
+  File "/private/var/python/env/lib/python3.5/site-packages/django/template/defaulttags.py", line 499, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 600, in reverse
+    return force_text(iri_to_uri(resolver._reverse_with_prefix(view, prefix, *args, **kwargs)))
+  File "/private/var/python/env/lib/python3.5/site-packages/django/core/urlresolvers.py", line 508, in _reverse_with_prefix
+    (lookup_view_s, args, kwargs, len(patterns), patterns))
+django.core.urlresolvers.NoReverseMatch: Reverse for 'logout' with arguments '()' and keyword arguments '{}' not found. 0 pattern(s) tried: []
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'qkwy32h1b1lnxgq5wm5t7715pbv4b788' AND "django_session"."expire_date" > '2016-04-13T15:07:28.281480+00:00'::timestamptz); args=('qkwy32h1b1lnxgq5wm5t7715pbv4b788', datetime.datetime(2016, 4, 13, 15, 7, 28, 281480, tzinfo=<UTC>))
+(0.002) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+(0.158) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'qkwy32h1b1lnxgq5wm5t7715pbv4b788' AND "django_session"."expire_date" > '2016-04-13T15:07:34.758476+00:00'::timestamptz); args=('qkwy32h1b1lnxgq5wm5t7715pbv4b788', datetime.datetime(2016, 4, 13, 15, 7, 34, 758476, tzinfo=<UTC>))
+(0.002) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 2; args=(2,)
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE "django_session"."session_key" = 'qkwy32h1b1lnxgq5wm5t7715pbv4b788'; args=('qkwy32h1b1lnxgq5wm5t7715pbv4b788',)
+(0.001) DELETE FROM "django_session" WHERE "django_session"."session_key" IN ('qkwy32h1b1lnxgq5wm5t7715pbv4b788'); args=('qkwy32h1b1lnxgq5wm5t7715pbv4b788',)
+(0.151) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.026) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+Not Found: /login/linkedin/
+(0.157) SELECT (1) AS "a" FROM "django_session" WHERE "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' LIMIT 1; args=('b2v0boisti72yx7rq0aum8hxxf8sddjw',)
+(0.105) INSERT INTO "django_session" ("session_key", "session_data", "expire_date") VALUES ('b2v0boisti72yx7rq0aum8hxxf8sddjw', 'YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', '2016-05-02T15:35:43.511735+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', 'YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', datetime.datetime(2016, 5, 2, 15, 35, 43, 511735, tzinfo=<UTC>))
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.309) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:37:11.843294+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 37, 11, 843294, tzinfo=<UTC>))
+(0.026) UPDATE "django_session" SET "session_data" = 'Mjg4NDEwZTY4MmIxN2ZmYTRjOGViODJlNmE5ZjJmNGY4MmRiMGQ1NDp7ImxpbmtlZGluLW9hdXRoMl9zdGF0ZSI6IkFJY0NIUWpZYmpmeU04T2ZFOUJVb3Y3TmNRMURmejI4IiwibmV4dCI6Ii8ifQ==', "expire_date" = '2016-05-02T15:37:12.320304+00:00'::timestamptz WHERE "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'; args=('Mjg4NDEwZTY4MmIxN2ZmYTRjOGViODJlNmE5ZjJmNGY4MmRiMGQ1NDp7ImxpbmtlZGluLW9hdXRoMl9zdGF0ZSI6IkFJY0NIUWpZYmpmeU04T2ZFOUJVb3Y3TmNRMURmejI4IiwibmV4dCI6Ii8ifQ==', datetime.datetime(2016, 5, 2, 15, 37, 12, 320304, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:38:21.536404+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 38, 21, 536404, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:38:21.624846+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 38, 21, 624846, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:38:21.755521+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 38, 21, 755521, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:38:21.910435+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 38, 21, 910435, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:38:23.224038+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 38, 23, 224038, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:41:55.128947+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 41, 55, 128947, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:41:55.420827+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 41, 55, 420827, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:41:55.566880+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 41, 55, 566880, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:41:55.717252+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 41, 55, 717252, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:41:55.864217+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 41, 55, 864217, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:41:56.003939+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 41, 56, 3939, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:41:57.112183+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 41, 57, 112183, tzinfo=<UTC>))
+(0.002) UPDATE "django_session" SET "session_data" = 'Mjg4NDEwZTY4MmIxN2ZmYTRjOGViODJlNmE5ZjJmNGY4MmRiMGQ1NDp7ImxpbmtlZGluLW9hdXRoMl9zdGF0ZSI6IkFJY0NIUWpZYmpmeU04T2ZFOUJVb3Y3TmNRMURmejI4IiwibmV4dCI6Ii8ifQ==', "expire_date" = '2016-05-02T15:41:57.128883+00:00'::timestamptz WHERE "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'; args=('Mjg4NDEwZTY4MmIxN2ZmYTRjOGViODJlNmE5ZjJmNGY4MmRiMGQ1NDp7ImxpbmtlZGluLW9hdXRoMl9zdGF0ZSI6IkFJY0NIUWpZYmpmeU04T2ZFOUJVb3Y3TmNRMURmejI4IiwibmV4dCI6Ii8ifQ==', datetime.datetime(2016, 5, 2, 15, 41, 57, 128883, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:44:58.449732+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 44, 58, 449732, tzinfo=<UTC>))
+(0.001) UPDATE "django_session" SET "session_data" = 'Mjg4NDEwZTY4MmIxN2ZmYTRjOGViODJlNmE5ZjJmNGY4MmRiMGQ1NDp7ImxpbmtlZGluLW9hdXRoMl9zdGF0ZSI6IkFJY0NIUWpZYmpmeU04T2ZFOUJVb3Y3TmNRMURmejI4IiwibmV4dCI6Ii8ifQ==', "expire_date" = '2016-05-02T15:44:58.577281+00:00'::timestamptz WHERE "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'; args=('Mjg4NDEwZTY4MmIxN2ZmYTRjOGViODJlNmE5ZjJmNGY4MmRiMGQ1NDp7ImxpbmtlZGluLW9hdXRoMl9zdGF0ZSI6IkFJY0NIUWpZYmpmeU04T2ZFOUJVb3Y3TmNRMURmejI4IiwibmV4dCI6Ii8ifQ==', datetime.datetime(2016, 5, 2, 15, 44, 58, 577281, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:46:40.567017+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 46, 40, 567017, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:46:41.603683+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 46, 41, 603683, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:46:45.126607+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 46, 45, 126607, tzinfo=<UTC>))
+(0.001) UPDATE "django_session" SET "session_data" = 'Mjg4NDEwZTY4MmIxN2ZmYTRjOGViODJlNmE5ZjJmNGY4MmRiMGQ1NDp7ImxpbmtlZGluLW9hdXRoMl9zdGF0ZSI6IkFJY0NIUWpZYmpmeU04T2ZFOUJVb3Y3TmNRMURmejI4IiwibmV4dCI6Ii8ifQ==', "expire_date" = '2016-05-02T15:46:45.144262+00:00'::timestamptz WHERE "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'; args=('Mjg4NDEwZTY4MmIxN2ZmYTRjOGViODJlNmE5ZjJmNGY4MmRiMGQ1NDp7ImxpbmtlZGluLW9hdXRoMl9zdGF0ZSI6IkFJY0NIUWpZYmpmeU04T2ZFOUJVb3Y3TmNRMURmejI4IiwibmV4dCI6Ii8ifQ==', datetime.datetime(2016, 5, 2, 15, 46, 45, 144262, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.009) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.009) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:47:58.663549+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 47, 58, 663549, tzinfo=<UTC>))
+(0.007) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:47:58.897061+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 47, 58, 897061, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:47:59.040128+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 47, 59, 40128, tzinfo=<UTC>))
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:47:59.155739+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 47, 59, 155739, tzinfo=<UTC>))
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw' AND "django_session"."expire_date" > '2016-04-18T15:48:01.042752+00:00'::timestamptz); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw', datetime.datetime(2016, 4, 18, 15, 48, 1, 42752, tzinfo=<UTC>))
+(0.001) UPDATE "django_session" SET "session_data" = 'YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', "expire_date" = '2016-05-02T15:48:01.061445+00:00'::timestamptz WHERE "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'; args=('YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', datetime.datetime(2016, 5, 2, 15, 48, 1, 61445, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.010) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-18T15:48:55.362189+00:00'::timestamptz AND "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'); args=(datetime.datetime(2016, 4, 18, 15, 48, 55, 362189, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.001) UPDATE "django_session" SET "session_data" = 'YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', "expire_date" = '2016-05-02T15:48:55.380907+00:00'::timestamptz WHERE "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'; args=('YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', datetime.datetime(2016, 5, 2, 15, 48, 55, 380907, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-18T15:50:41.723099+00:00'::timestamptz AND "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'); args=(datetime.datetime(2016, 4, 18, 15, 50, 41, 723099, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.001) UPDATE "django_session" SET "session_data" = 'YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', "expire_date" = '2016-05-02T15:50:41.743306+00:00'::timestamptz WHERE "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'; args=('YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', datetime.datetime(2016, 5, 2, 15, 50, 41, 743306, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-18T15:50:48.187415+00:00'::timestamptz AND "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'); args=(datetime.datetime(2016, 4, 18, 15, 50, 48, 187415, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.002) UPDATE "django_session" SET "session_data" = 'YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', "expire_date" = '2016-05-02T15:50:48.206743+00:00'::timestamptz WHERE "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'; args=('YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', datetime.datetime(2016, 5, 2, 15, 50, 48, 206743, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-18T15:51:02.725790+00:00'::timestamptz AND "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'); args=(datetime.datetime(2016, 4, 18, 15, 51, 2, 725790, tzinfo=<UTC>), 'b2v0boisti72yx7rq0aum8hxxf8sddjw')
+(0.059) SELECT "social_auth_usersocialauth"."id", "social_auth_usersocialauth"."user_id", "social_auth_usersocialauth"."provider", "social_auth_usersocialauth"."uid", "social_auth_usersocialauth"."extra_data", "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "social_auth_usersocialauth" INNER JOIN "auth_user" ON ("social_auth_usersocialauth"."user_id" = "auth_user"."id") WHERE ("social_auth_usersocialauth"."provider" = 'linkedin-oauth2' AND "social_auth_usersocialauth"."uid" = 'uMmsy13Hrd'); args=('linkedin-oauth2', 'uMmsy13Hrd')
+(0.085) SELECT COUNT(*) AS "__count" FROM "auth_user" WHERE "auth_user"."username" = 'BensonMburu'; args=('BensonMburu',)
+(0.038) INSERT INTO "auth_user" ("password", "last_login", "is_superuser", "username", "first_name", "last_name", "email", "is_staff", "is_active", "date_joined") VALUES ('!aZ1lPTDlNfIgTFU0Ym2Vl1lE7HdczcxshS93n54l', NULL, false, 'BensonMburu', '', '', '', false, true, '2016-04-18T15:51:12.208214+00:00'::timestamptz) RETURNING "auth_user"."id"; args=('!aZ1lPTDlNfIgTFU0Ym2Vl1lE7HdczcxshS93n54l', None, False, 'BensonMburu', '', '', '', False, True, datetime.datetime(2016, 4, 18, 15, 51, 12, 208214, tzinfo=<UTC>))
+(0.049) INSERT INTO "social_auth_usersocialauth" ("user_id", "provider", "uid", "extra_data") VALUES (35, 'linkedin-oauth2', 'uMmsy13Hrd', '{}') RETURNING "social_auth_usersocialauth"."id"; args=(35, 'linkedin-oauth2', 'uMmsy13Hrd', '{}')
+(0.001) UPDATE "social_auth_usersocialauth" SET "user_id" = 35, "provider" = 'linkedin-oauth2', "uid" = 'uMmsy13Hrd', "extra_data" = '{"last_name": "Mburu", "first_name": "Benson", "access_token": "AQXZzQ6sGeGEloA8R4sEBI8hWm5SwffeNuKexKo-GAiLdBeqVdrb8F68Q9JtGeyHQhw19oOIJ2fx_FOhgHEucA-iWdNo-Wb7oXPhNXUPnE9s5gkLKqUQiigpDGVm3I-1hE3DIfjOWn2dj5BC3SJDmWBl5-Jdf6qmyL3tAblmAeSyap5t9Dc", "id": "uMmsy13Hrd"}' WHERE "social_auth_usersocialauth"."id" = 34; args=(35, 'linkedin-oauth2', 'uMmsy13Hrd', '{"last_name": "Mburu", "first_name": "Benson", "access_token": "AQXZzQ6sGeGEloA8R4sEBI8hWm5SwffeNuKexKo-GAiLdBeqVdrb8F68Q9JtGeyHQhw19oOIJ2fx_FOhgHEucA-iWdNo-Wb7oXPhNXUPnE9s5gkLKqUQiigpDGVm3I-1hE3DIfjOWn2dj5BC3SJDmWBl5-Jdf6qmyL3tAblmAeSyap5t9Dc", "id": "uMmsy13Hrd"}', 34)
+(0.001) UPDATE "auth_user" SET "password" = '!aZ1lPTDlNfIgTFU0Ym2Vl1lE7HdczcxshS93n54l', "last_login" = NULL, "is_superuser" = false, "username" = 'BensonMburu', "first_name" = 'Benson', "last_name" = 'Mburu', "email" = '', "is_staff" = false, "is_active" = true, "date_joined" = '2016-04-18T15:51:12.208214+00:00'::timestamptz WHERE "auth_user"."id" = 35; args=('!aZ1lPTDlNfIgTFU0Ym2Vl1lE7HdczcxshS93n54l', False, 'BensonMburu', 'Benson', 'Mburu', '', False, True, datetime.datetime(2016, 4, 18, 15, 51, 12, 208214, tzinfo=<UTC>), 35)
+(0.001) SELECT (1) AS "a" FROM "django_session" WHERE "django_session"."session_key" = 'oq22zm5f8lhhgrmbevl77ya842pg620q' LIMIT 1; args=('oq22zm5f8lhhgrmbevl77ya842pg620q',)
+(0.001) INSERT INTO "django_session" ("session_key", "session_data", "expire_date") VALUES ('oq22zm5f8lhhgrmbevl77ya842pg620q', 'YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', '2016-05-02T15:51:12.364138+00:00'::timestamptz); args=('oq22zm5f8lhhgrmbevl77ya842pg620q', 'YWJiYjFhMTFkNmEwYjE4NDJmZGY5YmUyMzI2ZDE1YThhYTMzNDk4ODp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgifQ==', datetime.datetime(2016, 5, 2, 15, 51, 12, 364138, tzinfo=<UTC>))
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE "django_session"."session_key" = 'b2v0boisti72yx7rq0aum8hxxf8sddjw'; args=('b2v0boisti72yx7rq0aum8hxxf8sddjw',)
+(0.001) DELETE FROM "django_session" WHERE "django_session"."session_key" IN ('b2v0boisti72yx7rq0aum8hxxf8sddjw'); args=('b2v0boisti72yx7rq0aum8hxxf8sddjw',)
+(0.001) UPDATE "auth_user" SET "last_login" = '2016-04-18T15:51:12.371298+00:00'::timestamptz WHERE "auth_user"."id" = 35; args=(datetime.datetime(2016, 4, 18, 15, 51, 12, 371298, tzinfo=<UTC>), 35)
+(0.001) UPDATE "django_session" SET "session_data" = 'ZmM3NTVjZGFlY2Q3ZDIwZTYzYzIzMDQxZWRlYWQwZTk4NzE0YjA3Yjp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgiLCJfYXV0aF91c2VyX2lkIjoiMzUiLCJfYXV0aF91c2VyX2hhc2giOiIxMDA5NGY4YjRhOWZhYjEyNDczZjcyYTk0MDkwZjMxOWFmOGE3N2U4IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoic29jaWFsLmJhY2tlbmRzLmxpbmtlZGluLkxpbmtlZGluT0F1dGgyIiwic29jaWFsX2F1dGhfbGFzdF9sb2dpbl9iYWNrZW5kIjoibGlua2VkaW4tb2F1dGgyIn0=', "expire_date" = '2016-05-02T15:51:12.374926+00:00'::timestamptz WHERE "django_session"."session_key" = 'oq22zm5f8lhhgrmbevl77ya842pg620q'; args=('ZmM3NTVjZGFlY2Q3ZDIwZTYzYzIzMDQxZWRlYWQwZTk4NzE0YjA3Yjp7Im5leHQiOiIvIiwibGlua2VkaW4tb2F1dGgyX3N0YXRlIjoiQUljQ0hRalliamZ5TThPZkU5QlVvdjdOY1ExRGZ6MjgiLCJfYXV0aF91c2VyX2lkIjoiMzUiLCJfYXV0aF91c2VyX2hhc2giOiIxMDA5NGY4YjRhOWZhYjEyNDczZjcyYTk0MDkwZjMxOWFmOGE3N2U4IiwiX2F1dGhfdXNlcl9iYWNrZW5kIjoic29jaWFsLmJhY2tlbmRzLmxpbmtlZGluLkxpbmtlZGluT0F1dGgyIiwic29jaWFsX2F1dGhfbGFzdF9sb2dpbl9iYWNrZW5kIjoibGlua2VkaW4tb2F1dGgyIn0=', datetime.datetime(2016, 5, 2, 15, 51, 12, 374926, tzinfo=<UTC>), 'oq22zm5f8lhhgrmbevl77ya842pg620q')
+(0.005) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-18T15:51:12.594210+00:00'::timestamptz AND "django_session"."session_key" = 'oq22zm5f8lhhgrmbevl77ya842pg620q'); args=(datetime.datetime(2016, 4, 18, 15, 51, 12, 594210, tzinfo=<UTC>), 'oq22zm5f8lhhgrmbevl77ya842pg620q')
+(0.003) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 35; args=(35,)
+(0.004) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE ("django_session"."expire_date" > '2016-04-18T15:51:17.845090+00:00'::timestamptz AND "django_session"."session_key" = 'oq22zm5f8lhhgrmbevl77ya842pg620q'); args=(datetime.datetime(2016, 4, 18, 15, 51, 17, 845090, tzinfo=<UTC>), 'oq22zm5f8lhhgrmbevl77ya842pg620q')
+(0.003) SELECT "auth_user"."id", "auth_user"."password", "auth_user"."last_login", "auth_user"."is_superuser", "auth_user"."username", "auth_user"."first_name", "auth_user"."last_name", "auth_user"."email", "auth_user"."is_staff", "auth_user"."is_active", "auth_user"."date_joined" FROM "auth_user" WHERE "auth_user"."id" = 35; args=(35,)
+(0.001) SELECT "django_session"."session_key", "django_session"."session_data", "django_session"."expire_date" FROM "django_session" WHERE "django_session"."session_key" = 'oq22zm5f8lhhgrmbevl77ya842pg620q'; args=('oq22zm5f8lhhgrmbevl77ya842pg620q',)
+(0.001) DELETE FROM "django_session" WHERE "django_session"."session_key" IN ('oq22zm5f8lhhgrmbevl77ya842pg620q'); args=('oq22zm5f8lhhgrmbevl77ya842pg620q',)
+(0.029) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.017) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.053) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.009) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.002) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.008) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.180) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.057) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
