@@ -17,11 +17,13 @@ from .authentication import get_user_details
 from .authentication import save_user
 
 # Create your views here.
-def register(request):
+def new_profile(request):
 
     context = RequestContext(request)
     registered = False
-    user_form = authentication(data=request.POST)
+    work_form = developersemployment(data=request.POST)
+    edu_form=developerseducation(data=request.POST)
+    portfolio_form=developersportfolio(data=request.POST)
     if request.method =='POST':
             data = {}
             get_user_details.GetUserDetails.run(request.POST, data)
@@ -34,8 +36,8 @@ def register(request):
 
 
     return render(request,
-            'register.html',
-            {'user_form':user_form, 'registered': registered},
+            'tabs.html',
+            {'work_form':work_form, 'edu_form':edu_form, 'portfolio_form':portfolio_form,    'registered': registered},
             context_instance=RequestContext(request))
 
 def home(request):
