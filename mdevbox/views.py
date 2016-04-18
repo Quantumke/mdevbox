@@ -26,8 +26,6 @@ def new_profile(request):
     portfolio_form=developersportfolio(data=request.POST)
     if request.method =='POST':
             data = {}
-            get_user_details.GetUserDetails.run(request.POST, data)
-            save_user.SaveUser.run(data)
 
             messages.success(request, "User Was registered successfully! An email confirmation email was sent!")
             return HttpResponseRedirect('/login')
