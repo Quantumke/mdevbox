@@ -18,9 +18,9 @@ class developersemployment(forms.ModelForm):
 class developerseducation(forms.ModelForm):
 	class Meta:
 		model=developers_education
-		fields=('email','highest_education', 'institute_name','begin_education','end_education')
+		fields=('highest_education', 'institute_name','begin_education','end_education')
 
 class developersportfolio(forms.ModelForm):
 	class Meta:
 		model=developers_portfolio
-		fields=('email', 'portfoli_name', 'portfoli_tech', 'portfoli_link', 'portfoli_desc',)
+		fields=( 'portfoli_name', 'portfoli_tech', 'portfoli_link', 'portfoli_desc',)
