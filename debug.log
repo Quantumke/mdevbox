@@ -2148,3 +2148,154 @@ Not Found: /login/linkedin/
                 AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
                 AND pg_catalog.pg_table_is_visible(c.oid); args=None
 (0.057) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.010) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.016) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.007) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+CREATE TABLE "mdevbox_developers_education" ("id" serial NOT NULL PRIMARY KEY, "email" varchar(100) NOT NULL UNIQUE, "highest_education" varchar(100) NOT NULL, "institute_name" varchar(100) NOT NULL, "course" varchar(100) NOT NULL, "begin_education" date NOT NULL, "end_education" date NOT NULL); (params None)
+(0.264) CREATE TABLE "mdevbox_developers_education" ("id" serial NOT NULL PRIMARY KEY, "email" varchar(100) NOT NULL UNIQUE, "highest_education" varchar(100) NOT NULL, "institute_name" varchar(100) NOT NULL, "course" varchar(100) NOT NULL, "begin_education" date NOT NULL, "end_education" date NOT NULL); args=None
+CREATE TABLE "mdevbox_developers_employment" ("id" serial NOT NULL PRIMARY KEY, "email" varchar(100) NOT NULL UNIQUE, "speciality" varchar(100) NOT NULL, "previous_employer" varchar(100) NOT NULL, "role_previous_employment" varchar(100) NOT NULL, "begin_previous_employment" date NOT NULL, "end_previous_employment" date NOT NULL); (params None)
+(0.008) CREATE TABLE "mdevbox_developers_employment" ("id" serial NOT NULL PRIMARY KEY, "email" varchar(100) NOT NULL UNIQUE, "speciality" varchar(100) NOT NULL, "previous_employer" varchar(100) NOT NULL, "role_previous_employment" varchar(100) NOT NULL, "begin_previous_employment" date NOT NULL, "end_previous_employment" date NOT NULL); args=None
+CREATE TABLE "mdevbox_developers_portfolio" ("id" serial NOT NULL PRIMARY KEY, "email" varchar(100) NOT NULL, "portfoli_name" varchar(100) NOT NULL, "portfoli_tech" varchar(100) NOT NULL, "portfoli_link" varchar(100) NOT NULL, "portfoli_desc" varchar(100) NOT NULL); (params None)
+(0.007) CREATE TABLE "mdevbox_developers_portfolio" ("id" serial NOT NULL PRIMARY KEY, "email" varchar(100) NOT NULL, "portfoli_name" varchar(100) NOT NULL, "portfoli_tech" varchar(100) NOT NULL, "portfoli_link" varchar(100) NOT NULL, "portfoli_desc" varchar(100) NOT NULL); args=None
+(0.129) 
+            SELECT
+                kc.constraint_name,
+                kc.column_name,
+                c.constraint_type,
+                array(SELECT table_name::text || '.' || column_name::text
+                      FROM information_schema.constraint_column_usage
+                      WHERE constraint_name = kc.constraint_name)
+            FROM information_schema.key_column_usage AS kc
+            JOIN information_schema.table_constraints AS c ON
+                kc.table_schema = c.table_schema AND
+                kc.table_name = c.table_name AND
+                kc.constraint_name = c.constraint_name
+            WHERE
+                kc.table_schema = 'public' AND
+                kc.table_name = 'mdevbox_developers'
+            ORDER BY kc.ordinal_position ASC
+        ; args=['public', 'mdevbox_developers']
+(0.015) 
+            SELECT kc.constraint_name, kc.column_name
+            FROM information_schema.constraint_column_usage AS kc
+            JOIN information_schema.table_constraints AS c ON
+                kc.table_schema = c.table_schema AND
+                kc.table_name = c.table_name AND
+                kc.constraint_name = c.constraint_name
+            WHERE
+                c.constraint_type = 'CHECK' AND
+                kc.table_schema = 'public' AND
+                kc.table_name = 'mdevbox_developers'
+        ; args=['public', 'mdevbox_developers']
+(0.003) 
+            SELECT
+                c2.relname,
+                ARRAY(
+                    SELECT (SELECT attname FROM pg_catalog.pg_attribute WHERE attnum = i AND attrelid = c.oid)
+                    FROM unnest(idx.indkey) i
+                ),
+                idx.indisunique,
+                idx.indisprimary
+            FROM pg_catalog.pg_class c, pg_catalog.pg_class c2,
+                pg_catalog.pg_index idx
+            WHERE c.oid = idx.indrelid
+                AND idx.indexrelid = c2.oid
+                AND c.relname = 'mdevbox_developers'
+        ; args=['mdevbox_developers']
+ALTER TABLE "mdevbox_developers" DROP CONSTRAINT "mdevbox_developers_user_id_60af7d64_fk_auth_user_id"; (params [])
+(0.006) ALTER TABLE "mdevbox_developers" DROP CONSTRAINT "mdevbox_developers_user_id_60af7d64_fk_auth_user_id"; args=[]
+ALTER TABLE "mdevbox_developers" DROP COLUMN "user_id" CASCADE; (params [])
+(0.008) ALTER TABLE "mdevbox_developers" DROP COLUMN "user_id" CASCADE; args=[]
+DROP TABLE "mdevbox_developers" CASCADE; (params [])
+(0.022) DROP TABLE "mdevbox_developers" CASCADE; args=[]
+CREATE INDEX "mdevbox_developers_education_email_163bfa22_like" ON "mdevbox_developers_education" ("email" varchar_pattern_ops); (params [])
+(0.002) CREATE INDEX "mdevbox_developers_education_email_163bfa22_like" ON "mdevbox_developers_education" ("email" varchar_pattern_ops); args=[]
+CREATE INDEX "mdevbox_developers_employment_email_06be3ee8_like" ON "mdevbox_developers_employment" ("email" varchar_pattern_ops); (params [])
+(0.001) CREATE INDEX "mdevbox_developers_employment_email_06be3ee8_like" ON "mdevbox_developers_employment" ("email" varchar_pattern_ops); args=[]
+(0.003) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.009) INSERT INTO "django_migrations" ("app", "name", "applied") VALUES ('mdevbox', '0003_auto_20160416_1640', '2016-04-16T21:40:37.932715+00:00'::timestamptz) RETURNING "django_migrations"."id"; args=('mdevbox', '0003_auto_20160416_1640', datetime.datetime(2016, 4, 16, 21, 40, 37, 932715, tzinfo=<UTC>))
+(0.002) 
+            SELECT c.relname, c.relkind
+            FROM pg_catalog.pg_class c
+            LEFT JOIN pg_catalog.pg_namespace n ON n.oid = c.relnamespace
+            WHERE c.relkind IN ('r', 'v')
+                AND n.nspname NOT IN ('pg_catalog', 'pg_toast')
+                AND pg_catalog.pg_table_is_visible(c.oid); args=None
+(0.001) SELECT "django_migrations"."app", "django_migrations"."name" FROM "django_migrations"; args=()
+(0.019) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'admin' AND "django_content_type"."model" = 'logentry'); args=('admin', 'logentry')
+(0.038) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (1) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(1,)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'admin'; args=('admin',)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'permission'); args=('auth', 'permission')
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'group'); args=('auth', 'group')
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'auth' AND "django_content_type"."model" = 'user'); args=('auth', 'user')
+(0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (2, 3, 4) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(2, 3, 4)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'auth'; args=('auth',)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'contenttypes' AND "django_content_type"."model" = 'contenttype'); args=('contenttypes', 'contenttype')
+(0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (5) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(5,)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'contenttypes'; args=('contenttypes',)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'sessions' AND "django_content_type"."model" = 'session'); args=('sessions', 'session')
+(0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (6) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(6,)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'sessions'; args=('sessions',)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mongo_auth' AND "django_content_type"."model" = 'mongouser'); args=('mongo_auth', 'mongouser')
+(0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (7) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(7,)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'mongo_auth'; args=('mongo_auth',)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'usersocialauth'); args=('default', 'usersocialauth')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'nonce'); args=('default', 'nonce')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'association'); args=('default', 'association')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'default' AND "django_content_type"."model" = 'code'); args=('default', 'code')
+(0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (9, 10, 11, 12) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(9, 10, 11, 12)
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'default'; args=('default',)
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mdevbox' AND "django_content_type"."model" = 'reg_user'); args=('mdevbox', 'reg_user')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mdevbox' AND "django_content_type"."model" = 'developers_employment'); args=('mdevbox', 'developers_employment')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mdevbox' AND "django_content_type"."model" = 'developers_employment'); args=('mdevbox', 'developers_employment')
+(0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('mdevbox', 'developers_employment') RETURNING "django_content_type"."id"; args=('mdevbox', 'developers_employment')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mdevbox' AND "django_content_type"."model" = 'developers_education'); args=('mdevbox', 'developers_education')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mdevbox' AND "django_content_type"."model" = 'developers_education'); args=('mdevbox', 'developers_education')
+(0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('mdevbox', 'developers_education') RETURNING "django_content_type"."id"; args=('mdevbox', 'developers_education')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mdevbox' AND "django_content_type"."model" = 'developers_portfolio'); args=('mdevbox', 'developers_portfolio')
+(0.000) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE ("django_content_type"."app_label" = 'mdevbox' AND "django_content_type"."model" = 'developers_portfolio'); args=('mdevbox', 'developers_portfolio')
+(0.001) INSERT INTO "django_content_type" ("app_label", "model") VALUES ('mdevbox', 'developers_portfolio') RETURNING "django_content_type"."id"; args=('mdevbox', 'developers_portfolio')
+(0.001) SELECT "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (8, 42, 43, 44) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(8, 42, 43, 44)
+(0.007) INSERT INTO "auth_permission" ("name", "content_type_id", "codename") VALUES ('Can add developers_employment', 42, 'add_developers_employment'), ('Can change developers_employment', 42, 'change_developers_employment'), ('Can delete developers_employment', 42, 'delete_developers_employment'), ('Can add developers_education', 43, 'add_developers_education'), ('Can change developers_education', 43, 'change_developers_education'), ('Can delete developers_education', 43, 'delete_developers_education'), ('Can add developers_portfolio', 44, 'add_developers_portfolio'), ('Can change developers_portfolio', 44, 'change_developers_portfolio'), ('Can delete developers_portfolio', 44, 'delete_developers_portfolio'); args=('Can add developers_employment', 42, 'add_developers_employment', 'Can change developers_employment', 42, 'change_developers_employment', 'Can delete developers_employment', 42, 'delete_developers_employment', 'Can add developers_education', 43, 'add_developers_education', 'Can change developers_education', 43, 'change_developers_education', 'Can delete developers_education', 43, 'delete_developers_education', 'Can add developers_portfolio', 44, 'add_developers_portfolio', 'Can change developers_portfolio', 44, 'change_developers_portfolio', 'Can delete developers_portfolio', 44, 'delete_developers_portfolio')
+(0.001) SELECT "django_content_type"."id", "django_content_type"."app_label", "django_content_type"."model" FROM "django_content_type" WHERE "django_content_type"."app_label" = 'mdevbox'; args=('mdevbox',)
+(0.002) SELECT "auth_permission"."id", "auth_permission"."name", "auth_permission"."content_type_id", "auth_permission"."codename" FROM "auth_permission" INNER JOIN "django_content_type" ON ("auth_permission"."content_type_id" = "django_content_type"."id") WHERE "auth_permission"."content_type_id" IN (13) ORDER BY "django_content_type"."app_label" ASC, "django_content_type"."model" ASC, "auth_permission"."codename" ASC; args=(13,)
+(0.005) SELECT "django_admin_log"."id", "django_admin_log"."action_time", "django_admin_log"."user_id", "django_admin_log"."content_type_id", "django_admin_log"."object_id", "django_admin_log"."object_repr", "django_admin_log"."action_flag", "django_admin_log"."change_message" FROM "django_admin_log" WHERE "django_admin_log"."content_type_id" IN (13) ORDER BY "django_admin_log"."action_time" DESC; args=(13,)
+(0.035) DELETE FROM "auth_group_permissions" WHERE "auth_group_permissions"."permission_id" IN (37, 38, 39); args=(37, 38, 39)
+(0.003) DELETE FROM "auth_user_user_permissions" WHERE "auth_user_user_permissions"."permission_id" IN (37, 38, 39); args=(37, 38, 39)
+(0.001) DELETE FROM "auth_permission" WHERE "auth_permission"."id" IN (39, 38, 37); args=(39, 38, 37)
+(0.000) DELETE FROM "django_content_type" WHERE "django_content_type"."id" IN (13); args=(13,)

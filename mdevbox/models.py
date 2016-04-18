@@ -32,6 +32,7 @@ class developers_education(models.Model):
     email=models.CharField(max_length=100, unique=True)
     highest_education=models.CharField(max_length=100, unique=False)
     institute_name=models.CharField(max_length=100, unique=False)
+    course=models.CharField(max_length=100, unique=False)
     begin_education=models.DateField(blank=False)
     end_education=models.DateField(blank=False)
     def __unicode__(self):
