@@ -25,5 +25,14 @@ urlpatterns = [
     url(r'^$', 'mdevbox.views.home', name='home'),
     url('', include('social.apps.django_app.urls', namespace='social')),
     url('', include('django.contrib.auth.urls', namespace='auth')),
+    url(r'^get/(?P<id>\d+)/$', views.fetch_one, name="fetch_one"),
+    url(r'^portfolios/$' ,views.fetch_all, name='fetch_all'),
+    url(r'^sendoffer/(?P<id>\d+)/$', views.offer, name="offer"),
+    url(r'^sendoffer/$', views.offer, name="offer-save"),
+
+
+
+
+
 
 ]

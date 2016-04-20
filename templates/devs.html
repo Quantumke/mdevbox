@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+{%if devs%}
+{%for d in devs%}
+
+{{ d.id }}
+    <a href='/get/{{d.id}}'>View More</a>
+
+{%endfor%}
+{%endif%}
+
+</body>
+</html>
