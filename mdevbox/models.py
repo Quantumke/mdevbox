@@ -48,6 +48,19 @@ class developers_portfolio(models.Model):
         return self.user.email
 
 
+class hire(models.Model):
+    company=models.CharField(max_length=100, unique=False)
+    job_title=models.CharField(max_length=100, unique=False)
+    job_description=models.CharField(max_length=100, unique=False)
+    date = models.DateField(default=datetime.now, blank=False)
 
+
+
+class post_job(models.Model):
+    job_title=models.CharField(max_length=100, unique=False)
+    job_description=models.CharField(max_length=100, unique=False)
+    company= models.CharField(max_length=100, unique=False)
+    pay=models.CharField(max_length=100, unique=False)
+    date = models.DateField(default=datetime.now, blank=False)
 
 
