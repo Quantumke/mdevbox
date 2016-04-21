@@ -1,9 +1,9 @@
 from mdevbox.models import developers_portfolio
 class SavePortfolio():
-	def run(data):
+	def run(data, request):
 		portfolio=data.get('portfolio')
 		work_details=data.get('work_data')
-		email=work_details.get('email')
+		email=request.user
 		portfoli_name=portfolio.get('portfoli_name')
 		portfoli_tech=portfolio.get('portfoli_tech')
 		portfoli_link=portfolio.get('portfoli_link')
