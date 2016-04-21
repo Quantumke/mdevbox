@@ -1,8 +1,8 @@
 from mdevbox.models import developers_employment
 class SaveEmpDetails():
-	def run(data):
+	def run(data, request):
 		work_details=data.get('work_data')
-		email=work_details.get('email')
+		email=request.user
 		speciality=work_details.get('speciality')
 		previous_employer=work_details.get('previous_employer')
 		role_previous_employment=work_details.get('role_previous_employment')

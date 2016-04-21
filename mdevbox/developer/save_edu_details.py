@@ -1,9 +1,9 @@
 from mdevbox.models import developers_education
 class SaveEduDetails():
-	def run(data):
+	def run(data,request):
 		edu_details=data.get('edu_data')
-		work_details=data.get('work_data')
-		email=work_details.get('email')
+		#print (edu_details)
+		email=request.user
 		highest_education=edu_details.get('highest_education')
 		institute_name=edu_details.get('institute_name')
 		course=edu_details.get('course')
