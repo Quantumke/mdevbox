@@ -22,6 +22,9 @@ from .developer import  save_portfolio
 from .hire import get_form_data
 from .hire import send_email_notification
 from .hire import save_hire
+from .jobs import get_form_data
+from .jobs import save_job
+from .jobs import apply_job
 # Create your views here.
 
 
@@ -83,3 +86,40 @@ def offer(request, id):
             "form":form,
         }
         return render(request, "make_offer.html", context)
+def newjob(request):
+    context = RequestContext(request)
+    jobform = postjob(data=request.POST)
+    if request.method == 'POST':
+            data = {}
+            get_form_data.GetFormData.run(request.POST, data)
+            save_job.SaveJob.run(data)
+            messages.success(request, "User Was registered successfully! An email confirmation email was sent!")
+            return HttpResponseRedirect('/')
+
+
+
+
+    return render(request,
+            'postjob.html',
+            {'jobform':jobform,  },
+            context_instance=RequestContext(request))
+
+
+
+def get_job(request, id=1):
+    return render_to_response('viewjob.html',{'jobs':post_job.objects.get(id=id) })
+
+
+def displayjobs(request):
+    return render_to_response('all.html', {'jobs': post_job.objects.all()})
+
+def applyjob(request, id):
+    context = RequestContext(request)
+
+    if id:
+        instance = developers_portfolio.objects.get(id=id)
+
+        data ={}
+        apply_job.ApplyJob.run(data, id)
+        messages.success(request, "Account was activated!")
+        return render(request, "official/index.html", context)

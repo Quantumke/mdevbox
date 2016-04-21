@@ -63,4 +63,7 @@ class post_job(models.Model):
     pay=models.CharField(max_length=100, unique=False)
     date = models.DateField(default=datetime.now, blank=False)
 
-
+class appliedcandidates(models.Model):
+    email=models.CharField(max_length=100, unique=False)
+    portfolio_link=models.CharField(max_length=100, unique=False)
+    date= models.DateField(default=datetime.now, blank=False)

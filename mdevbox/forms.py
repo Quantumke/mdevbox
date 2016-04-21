@@ -30,7 +30,7 @@ class hire(forms.ModelForm):
 		model=hire
 		fields=('company','job_title','job_description', )
 
-class post_job(forms.ModelForm):
+class postjob(forms.ModelForm):
 	class Meta:
 		model=post_job
 		fields=('company', 'job_title', 'job_description', 'pay',)
