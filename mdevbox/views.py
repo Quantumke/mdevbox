@@ -39,9 +39,9 @@ def new_profile(request):
             get_work_details.GetWorkDetails.run(request.POST, data)
             get_edu_details.GetEduDetails.run(request.POST, data)
             get_portfolio.GetPortfolio.run(request.POST, data)
-            save_portfolio.SavePortfolio.run(data)
-            save_emp_details.SaveEmpDetails.run(data)
-            save_edu_details.SaveEduDetails.run(data)
+            save_portfolio.SavePortfolio.run(data, request)
+            save_emp_details.SaveEmpDetails.run(data, request)
+            save_edu_details.SaveEduDetails.run(data, request)
             messages.success(request, "User Was registered successfully! An email confirmation email was sent!")
             return HttpResponseRedirect('/')
 
@@ -77,7 +77,7 @@ def offer(request, id):
             data ={}
             get_form_data.GetFormData.run(request.POST, data)
             send_email_notification.SendEmailNotification.run(data, id)
-            save_hire.SaveHire.run(data)
+            save_hire.SaveHire.run(request, data)
 
             return HttpResponseRedirect('/')
         context = {
@@ -92,7 +92,7 @@ def newjob(request):
     if request.method == 'POST':
             data = {}
             get_form_data.GetFormData.run(request.POST, data)
-            save_job.SaveJob.run(data)
+            save_job.SaveJob.run(request,data)
             messages.success(request, "User Was registered successfully! An email confirmation email was sent!")
             return HttpResponseRedirect('/')
 
@@ -117,9 +117,8 @@ def applyjob(request, id):
     context = RequestContext(request)
 
     if id:
-        instance = developers_portfolio.objects.get(id=id)
 
         data ={}
-        apply_job.ApplyJob.run(data, id)
+        apply_job.ApplyJob.run(data, request)
         messages.success(request, "Account was activated!")
         return render(request, "official/index.html", context)

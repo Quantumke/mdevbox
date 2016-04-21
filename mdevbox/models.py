@@ -52,6 +52,7 @@ class hire(models.Model):
     company=models.CharField(max_length=100, unique=False)
     job_title=models.CharField(max_length=100, unique=False)
     job_description=models.CharField(max_length=100, unique=False)
+    hire=models.CharField(max_length=100, unique=False)
     date = models.DateField(default=datetime.now, blank=False)
 
 
@@ -61,9 +62,10 @@ class post_job(models.Model):
     job_description=models.CharField(max_length=100, unique=False)
     company= models.CharField(max_length=100, unique=False)
     pay=models.CharField(max_length=100, unique=False)
+    posted_by=models.CharField(max_length=100, unique=False)
     date = models.DateField(default=datetime.now, blank=False)
 
 class appliedcandidates(models.Model):
-    email=models.CharField(max_length=100, unique=False)
+    applicant=models.CharField(max_length=100, unique=False)
     portfolio_link=models.CharField(max_length=100, unique=False)
     date= models.DateField(default=datetime.now, blank=False)
