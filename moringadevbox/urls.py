@@ -28,11 +28,8 @@ urlpatterns = [
     url(r'^get/(?P<id>\d+)/$', views.fetch_one, name="fetch_one"),
     url(r'^portfolios/$' ,views.fetch_all, name='fetch_all'),
     url(r'^sendoffer/(?P<id>\d+)/$', views.offer, name="offer"),
-    url(r'^sendoffer/$', views.offer, name="offer-save"),
-
-
-
-
-
-
+    url(r'^jobs/$' ,views.displayjobs, name='fetch_all'),
+    url(r'^viewjob/(?P<id>\d+)/$', views.get_job, name="offer"),
+    url(r'^apply/(?P<id>\d+)/$', views.applyjob, name="offer"),
+    url(r'^postjob/$', views.newjob, name="post_job"),
 ]
