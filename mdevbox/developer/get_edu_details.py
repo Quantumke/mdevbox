@@ -2,7 +2,7 @@ class GetEduDetails():
 
 	def run(request_data,data):
 		data['edu_data']=GetEduDetails.get_edu_data(request_data)
-		#print (request_data)
+		print (request_data)
 
 	def get_edu_data(request_data):
 		edu_data={}
